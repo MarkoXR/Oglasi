@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Oglasi.Model.Ad
+
+<div class="card">
+    <img class="card-img-top ad-image" src="~/images/@Model.ImagePath">
+    <div class="card-body">
+        <strong class="card-title">@Model.Title</strong>
+        <p class="card-text ad-description">@Model.Description</p>
+        <a asp-controller="Ad" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-info">Pogledaj</a>
+    </div>
+</div>

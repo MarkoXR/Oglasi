@@ -1,0 +1,22 @@
+﻿@model Oglasi.Model.Post
+
+<div class="form-group">
+    <label class="control-label">Datum objave</label>
+    <input id="datepicker" type="date"
+           data-date-format="@System.Threading.Thread.CurrentThread.CurrentCulture.DateTimeFormat.ShortDatePattern.ToLower()"
+           asp-for="PostDate" class="form-control" placeholder="@Model?.PostDate" />
+    <span asp-validation-for="PostDate" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Naslov</label>
+    <input asp-for="Title" class="form-control" placeholder="@Model?.Title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Poruka</label>
+    <textarea asp-for="Message" class="form-control" placeholder="@Model?.Message" rows="8"></textarea>
+    <span asp-validation-for="Message" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Objavi" class="btn btn-outline-success" />
+</div>

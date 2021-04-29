@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Oglasi.Model.AdFilterModel
+
+<form id="adFilterForm">
+    <div class="form-row">
+        <div class="col-3">
+            <input asp-for="Title" class="form-control" type="text" placeholder="Naslov" />
+        </div>
+        <div class="col-3">
+            <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+            </select>
+        </div>
+        <div class="col-3">
+            <select asp-for="CountyId" asp-items="@ViewBag.Counties" class="form-control">
+            </select>
+        </div>
+        <div class="col-3">
+            <button id="ajaxButton" type="button" class="btn btn-info w-100">Pretraga</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,18 @@
+﻿@model List<Oglasi.Model.Post>
+
+@foreach (var post in Model)
+{
+    <tr>
+        <th>@post.PostDate.ToShortDateString()</th>
+        <td>@post.Title</td>
+        <td>@post.Message</td>
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+                <a class="btn btn-outline-info" asp-controller="Post"
+                   asp-action="Edit" asp-route-id="@post.ID">Uredi</a>
+                <button onclick="deletePostAjax(@post.ID)" class="btn btn-outline-danger">Ukloni</button>
+            </td>
+        }
+    </tr>
+}

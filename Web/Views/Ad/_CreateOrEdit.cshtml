@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model Oglasi.Model.Ad
+
+<div class="form-group">
+    <label class="control-label">Naziv</label>
+    <input asp-for="Title" class="form-control" placeholder="@Model?.Title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+</div>
+<input type="hidden" id="imagePathField"asp-for="ImagePath">
+<div action="UploadPhoto"
+     class="dropzone"
+     id="profilePhotoDz"></div>
+<div class="form-group">
+    <label class="control-label">Opis</label>
+    <textarea asp-for="Description" class="form-control" placeholder="@Model?.Description" rows="8"></textarea>
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Kategorija</label>
+    <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+    </select>
+</div>
+<div class="form-group">
+    <label asp-for="ContactNumber" class="control-label">Kontakt broj</label>
+    <input id="mailInput" asp-for="ContactNumber" class="form-control" placeholder="@Model?.ContactNumber" />
+    <span asp-validation-for="ContactNumber" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label class="control-label">Županija</label>
+    <select asp-for="CountyId" asp-items="@ViewBag.Counties" class="form-control">
+    </select>
+</div>
+<div class="form-group">
+    <label class="control-label">Adresa</label>
+    <input asp-for="Address" class="form-control" placeholder="@Model?.Address" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <input type="submit" value="Predaj" class="btn btn-outline-success" />
+</div>

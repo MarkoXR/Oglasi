@@ -1,0 +1,38 @@
+﻿@model Oglasi.Model.AdFilterModel
+
+@section Hero{
+    <div class="jumbotron jumbotron-fluid hero-image">
+        <div class="container hero-content">
+            <partial name="_AdFilter" model="@Model" />
+        </div>
+    </div>
+}
+
+<div id="myAdsContainer"></div>
+
+@section Scripts{ 
+    <script type="text/javascript">
+        $("#ajaxButton").click(function () {
+            var formData = $("#adFilterForm").serialize();
+            $.ajax({
+                url: "@Url.Action("IndexAjax")",
+                type: "POST",
+                data: formData,
+                success: function (html) {
+                    $("#myAdsContainer").html(html);
+                }
+            });
+        });
+        $("document").ready(function () {
+            var formData = $("#adFilterForm").serialize();
+            $.ajax({
+                url: "@Url.Action("IndexAjax")",
+                type: "POST",
+                data: formData,
+                success: function (html) {
+                    $("#myAdsContainer").html(html);
+                }
+            });
+        })
+    </script>
+}

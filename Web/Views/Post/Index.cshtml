@@ -1,0 +1,39 @@
+﻿
+<h1>Obavijesti</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Datum</th>
+            <th scope="col">Naslov</th>
+            <th scope="col">Poruka</th>
+        </tr>
+    </thead>
+    <tbody id="PostsAjax">
+    </tbody>
+</table>
+
+@section Scripts{
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $.ajax({
+                url: "@Url.Action("GetPostsAjax")",
+                type: "POST",
+                success: function (html) {
+                    $("#PostsAjax").html(html);
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        function deletePostAjax(id) {
+            $.ajax({
+                url: "@Url.Action("DeleteAjax")",
+                type: "POST",
+                data: $.param({ id: id }),
+                success: function (html) {
+                    $("#PostsAjax").html(html);
+                }
+            });
+        }
+    </script>
+}
