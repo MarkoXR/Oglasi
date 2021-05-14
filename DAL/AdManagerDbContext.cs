@@ -22,9 +22,21 @@ namespace DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Post>().HasData(new Post { ID = 1, PostDate = DateTime.Now.AddDays(-10), Title="Alpha verzija online", Message="Alpha verzija aplikacije je online..."});
-            modelBuilder.Entity<Post>().HasData(new Post { ID = 2, PostDate = DateTime.Now.AddDays(-5), Title = "Beta verzija online", Message = "Beta većina značajki je funkcionalna" });
-            modelBuilder.Entity<Post>().HasData(new Post { ID = 3, PostDate = DateTime.Now, Title = "v1.01 online", Message = "Prva release verzija online..." });
+            modelBuilder.Entity<Post>().HasData(new Post { 
+                ID = 1, 
+                PostDate = DateTime.Now.AddDays(-10), 
+                Title="Alpha verzija online", Message="Alpha verzija aplikacije je online..."
+            });
+            modelBuilder.Entity<Post>().HasData(new Post { 
+                ID = 2, 
+                PostDate = DateTime.Now.AddDays(-5), 
+                Title = "Beta verzija online", Message = "Beta većina značajki je funkcionalna" 
+            });
+            modelBuilder.Entity<Post>().HasData(new Post { 
+                ID = 3, 
+                PostDate = DateTime.Now, Title = "v1.01 online", 
+                Message = "Prva release verzija online..." 
+            });
         }
     }
 }
